@@ -201,8 +201,43 @@ else:
 
 ### Fonctions
 
-### Iterables
+Pour permettre d'organiser et pour éviter de recopier du code s'il est réutiliser, il est possible de définir des
+foncitons.
+
+Une fonction est un bloc de code, à qui zéro, un ou plusieurs **arguments** va être passé, et qui va renvoyer
+une **valeur retour**.
+
+Exemple
+```Python
+# Definition de la fonction
+def ma_reaction(prix):
+    # Moins de 50 euros, ca passe
+    if prix_total < 50:
+        return "J'achete !"
+
+    # Plus de 500 euros, quelle arnaque
+    elif prix_total >= 500:
+        return "C'est trop cher !"
+
+    # Sinon je sais pas trop
+    else:
+        return "J'hesite"
+
+# Calculs savants
+prix_au_kilo = 5
+nombre_kilo = 2
+prix_total = prix_au_kilo * nombre_kilo
+
+# Utilisation de la fonction
+print ma_reaction(prix_total)
+```
+
+### Itérables
+
+
 
 ### Boucles
+
+
 
 ##
