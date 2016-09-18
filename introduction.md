@@ -305,12 +305,14 @@ attribution_parking = {
 
 ### Boucles
 
-Il est souvent pratique de pouvoir **parcourir** les **éléments** d'un itérable, pour effectuer un traitement par
-lot. Il existe pour cela la boucle `for` et la boucle `while`
+Les boucles permettent d'executer de manière répétitive (itérative) un bloc de code
+
+Chaque répétition est appelé une **itération**
 
 #### Boucle `for`
 
-La boucle `for` permet de parcourir tous les éléments d'un itérable, du premier au dernier.
+Il est souvent pratique de pouvoir **parcourir** les **éléments** d'un itérable, pour effectuer un traitement par
+lot. Il existe pour cela la boucle `for`
 
 Exemple
 
@@ -337,7 +339,7 @@ print brasserie_ce_midi
 
 #### Boucle `while`
 
-La boucle while permet d'executer du code tant qu'une condition n'est pas validée (`True`)
+La boucle while permet d'executer du code tant qu'une condition est validée (`True`)
 
 Exemple
 
