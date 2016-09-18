@@ -202,9 +202,9 @@ else:
 ### Fonctions
 
 Pour permettre d'organiser et pour éviter de recopier du code s'il est réutiliser, il est possible de définir des
-foncitons.
+fonctions.
 
-Une fonction est un bloc de code, à qui zéro, un ou plusieurs **arguments** va être passé, et qui va renvoyer
+Une fonction est un bloc de code à qui zéro, un, ou plusieurs **arguments** va être passé, et qui va renvoyer
 une **valeur retour**.
 
 Exemple
@@ -234,10 +234,122 @@ print ma_reaction(prix_total)
 
 ### Itérables
 
+Il existe dans la plupart des langages un moyen de grouper les objets dans d'autres objets. L'exemple le plus simple
+est la liste.
 
+#### La liste : `list()`
+
+En Python, une liste est déclarée et assignée comme suit :
+
+```Python
+mes_legumes_favoris = ['Choux', 'Salsifi', 'Endive', 'Brocoli']
+```
+
+Il est ensuite possible d'effectuer des opérations et des tests sur la liste et ses éléments
+
+Il est possible de tester si un element est présent dans la liste
+
+```Python
+mes_legumes_favoris = ['Choux', 'Salsifi', 'Endive', 'Brocoli']
+
+if 'Poireau' in mes_legumes_favoris:
+    print "J'adore le poireau"
+```
+
+Il est possible d'ajouter un element à la liste
+
+```Python
+# J'ai des legumes favoris
+mes_legumes_favoris = ['Choux', 'Salsifi', 'Endive', 'Brocoli']
+
+print 'Poireau' in mes_legumes_favoris  # False
+
+# Je me rend compte que j'adore le poireau
+mes_legumes_favoris.append("Poireau")
+
+print 'Poireau' in mes_legumes_favoris  # True
+```
+
+Bien d'autres opérations sont possibles (tri, suppression d'élement, ...)
+
+#### Le dictionnaire : `dict()`
+
+Un dictionnaire associe une liste de **clefs** à une liste de **valeurs**. Il peut s'apparenter à un tableau
+à deux colones.
+
+Exemple
+
+| Numéro de place de parking | Propriétaire |
+| --- | --- |
+| 1 | César |
+| 2 | Napoléon |
+| 3 | Attila |
+| 4 | Marie-Antoinette |
+
+En Python
+
+```Python
+attribution_parking = {1: 'Cesar', 2: 'Napoleon', 3: 'Attila', 4: 'Marie-Antoinette'}
+```
+
+Plus lisiblement
+
+```Python
+attribution_parking = {
+    1: 'Cesar',
+    2: 'Napoleon',
+    3: 'Attila',
+    4: 'Marie-Antoinette'
+}
+```
 
 ### Boucles
 
+Il est souvent pratique de pouvoir **parcourir** les **éléments** d'un itérable, pour effectuer un traitement par
+lot. Il existe pour cela la boucle `for` et la boucle `while`
 
+#### Boucle `for`
 
-##
+La boucle `for` permet de parcourir tous les éléments d'un itérable, du premier au dernier.
+
+Exemple
+
+```Python
+# J'ai des legumes favoris
+mes_legumes_favoris = ['Choux', 'Salsifi', 'Endive', 'Brocoli']
+
+# Ingredients du plat du jour a la brasserie
+ingredients = ['Tomate', 'Haricots', 'Lard', 'Endive', 'Bechamel']
+
+# Prepare une variable pour savoir si je vais a la brasserie ce midi
+brasserie_ce_midi = False
+
+# Chaque ingredient du plat du jour
+for ingredient in ingredients:
+    # S'il s'agit d'un de mes legumes favoris
+    if ingredient in mes_legumes_favoris:
+        # Je vais aller a la brasserie
+        brasserie_ce_midi = True
+
+# Ennonce le resultat
+print brasserie_ce_midi
+```
+
+#### Boucle `while`
+
+La boucle while permet d'executer du code tant qu'une condition n'est pas validée (`True`)
+
+Exemple
+
+```Python
+# Je me suis decide a aller a la brasserie
+j_ai_faim = True
+
+while j_ai_faim:
+    # Manger un peu
+    manger_un_peu()
+    # Verifier si j'ai encore faim
+    j_ai_faim = ai_je_encore_faim()
+
+print "J'ai plus faim, j'arrete la, ou alors juste un petit dessert"
+```
