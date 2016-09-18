@@ -72,7 +72,7 @@ Les principaux types d'objets sont les suivants
 
 Un des grands avantages du Python est sa syntaxe. Elle est lisible et minimaliste.
 
-Pour définir un bloc de code (fonction, test, boucle), la plupart des langages utilisent les accolades,
+Pour définir un bloc de code (fonction, test, boucle, ...) la plupart des langages utilisent les accolades,
 les points virgules, et d'autres signes
 
 Exemple en C#
@@ -123,7 +123,7 @@ L'exemple le plus simple est celui de l'addition
 ma_variable = 10 + 5
 ```
 
-Ici, 10 et 5 sont additionnés, et le resultat est assigné à `ma_variable`
+Ici, 10 et 5 sont additionnés, et le résultat est assigné à `ma_variable`
 
 Il est possible d'effectuer des opérations sur des variables
 
@@ -142,16 +142,62 @@ Les principaux opérateurs sont les suivants
 | Soustraction | `-` | La soustraction |
 | Multiplication | `*` | La multiplication |
 | Division | `/` | La division |
+| Division Entière | `//` | Partie entière de la division |
 | Exposant | `**` | La mise à la puissance |
 | Modulo | `%` | Reste de la division Euclidienne |
 
 ### Test / Comparaison
 
-Comparaison valeurs
+Il existe des opérateurs de comparaison. Ces opérateurs renvoient un booléen, selon si la comparaision est vraie ou
+fausse.
 
-Operations booleenes
+Il existe des opérateurs de comparaison pour l'égalité, la superiorité, l'inferiorité, ...
 
-If elif else
+Exemple
+
+```Pyhton
+10 > 5  # True
+5 > 10  # False
+```
+
+Comme les opérateurs précédents, il est possible de les utiliser avec des variables
+
+Les principaux opérateurs sont les suivants
+
+| Nom | Signe | Description |
+| --- | --- | --- |
+| Egal | `==` | Opérateur d'égalité |
+| Inégal | `!=` | Opérateur d'inégalité |
+| Supérieur stricte | `>` | Opérateur de supériorité stricte |
+| Supérieur ou égal | `>=` | Opérateur de supériorité |
+| Inférieur stricte | `<` | Opérateur d'inferiorité stricte |
+| Inférieur ou égal | `<=` | Opérateur d'inferiorité |
+| Unicité | `is` | Teste s'il s'agit du même objet |
+| Non unicité | `is not` | Teste s'il ne s'agit pas du même objet |
+
+Afin de pouvoir executer du code selon un cas ou l'autre, on utilise une structure de contrôle. Elle utilise les mots-clef
+`if`, `elif` et `else`
+
+Exemple
+
+```Python
+# Calculs savants
+prix_au_kilo = 5
+nombre_kilo = 2
+prix_total = prix_au_kilo * nombre_kilo
+
+# Moins de 50 euros, ca passe
+if prix_total < 50:
+    print "J'achete !"
+
+# Plus de 500 euros, quelle arnaque
+elif prix_total >= 500:
+    print "C'est trop cher !"
+
+# Sinon je sais pas trop
+else:
+    print "J'hesite"
+```
 
 ### Fonctions
 
