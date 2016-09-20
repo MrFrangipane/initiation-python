@@ -9,7 +9,7 @@ le module `MaxPlus`
 
 ### Exemple
 
-[Exemple Autodesk](http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html)
+[Exemple Autodesk](http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html?url=files/GUID-1AC35645-91D7-4DBE-9714-681C8CC8700F.htm,topicNumber=d30e920)
 
 ### Exercice
 
