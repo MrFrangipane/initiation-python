@@ -364,11 +364,15 @@ Python permet d'organiser le code en fichiers et en dossiers. Les fonctions sont
 
 Tout fichier `.py` est un module, et il accessible à la commande `import` s'il est dans le même dossier que le script courant, ou s'il est dans le `$PYTHONPATH`
 
+Arborescence
+
 ```plain
  / racine
     + mon_module.py
     + mon_script.py
 ```
+
+Exemple d'import depuis `mon_script.py`
 
 ```python
 import mon_module
@@ -376,7 +380,7 @@ import mon_module
 print mon_module.ma_fonction()
 ```
 
-Exemple, le module `math`
+Autre exemple : le module `math`
 
 ```python
 import math
@@ -387,6 +391,10 @@ print racine_carree
 
 #### Package
 
+Un package est un dossier contenant plusieurs modules. Il doit comporter un fichier `__init__.py`, qui le plus souvent est vide, ou contient simplement des `import`.
+
+Arborescence
+
 ```plain
  / racine
     / mon_package
@@ -394,4 +402,14 @@ print racine_carree
        + module_1.py
        + module_2.py
     + mon_script.py
+```
+
+Exemple d'import depuis `mon_script.py`
+
+```python
+import mon_package.module1
+from mon_package import module2
+
+print mon_package.module1.ma_fonction1()
+print module2.ma_fonction2()
 ```
