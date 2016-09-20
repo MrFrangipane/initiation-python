@@ -367,7 +367,7 @@ Tout fichier `.py` est un module, et il accessible à la commande `import` s'il 
 Arborescence
 
 ```plain
- / racine
+ + /racine
     + mon_module.py
     + mon_script.py
 ```
@@ -396,11 +396,11 @@ Un package est un dossier contenant plusieurs modules. Il doit comporter un fich
 Arborescence
 
 ```plain
- / racine
-    / mon_package
-       + __init__.py
-       + module_1.py
-       + module_2.py
+ + /racine
+    + /mon_package
+    |  + __init__.py
+    |  + module_1.py
+    |  + module_2.py
     + mon_script.py
 ```
 
