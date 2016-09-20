@@ -48,7 +48,7 @@ def teapot_circle(radius, count):
 	for teapot_index in range(count):
 		# Compute Angles
 		current_angle = distribution_angle * teapot_index
-		angle_z = math.pi * (index % 2) + current_angle
+		angle_z = math.pi * (teapot_index % 2) + current_angle
 		# Compute position
 		position_x = radius * math.cos(current_angle)
 		position_y = radius * math.sin(current_angle)
