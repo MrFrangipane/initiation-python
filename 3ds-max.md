@@ -5,7 +5,11 @@ le module `MaxPlus`
 
 [Documentation Autodesk](http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html)
 
-## Exemple : Teapot
+## Création d'objet
+
+[Exemple Autodesk](http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html)
+
+## Exemple : Fonction `make_teapot`
 
 ```Python
 # Import de MaxPlus (qui permet d'interagir avec 3dsMax)
