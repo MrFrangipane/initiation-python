@@ -7,6 +7,14 @@ le module `MaxPlus`
 
 ## Création d'objet
 
+### Exemple
+
 [Exemple Autodesk](http://docs.autodesk.com/3DSMAX/16/ENU/3ds-Max-Python-API-Documentation/index.html)
 
+### Exercice
 
+Créer une fonction qui créé une `teapot`
+
+```Python
+make_teapot(radius=20.0, segments=10, position=[0.0, 0.0, 5.0])
+```
