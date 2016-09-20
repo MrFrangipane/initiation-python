@@ -232,6 +232,24 @@ prix_total = prix_au_kilo * nombre_kilo
 print ma_reaction(prix_total)
 ```
 
+#### Unpacking
+
+Il est possible d'assigner plusieurs variables simultanément.
+
+```Python
+a, b, c = ["a", "b", "c"]
+```
+
+Pratique pour retourner plusieurs valeurs depuis une fonction
+
+```Python
+def ma_fonction():
+    return "a", "b", "c"
+    
+a, b, c = ma_fonction()
+```
+Les crochets sont facultatifs, cela créé un `tuple` implicitement
+
 ### Itérables
 
 Il existe dans la plupart des langages un moyen de grouper les objets dans d'autres objets. L'exemple le plus simple
@@ -314,7 +332,7 @@ Chaque répétition est appelé une **itération**
 Il est souvent pratique de pouvoir **parcourir** les **éléments** d'un itérable, pour effectuer un traitement par
 lot. Il existe pour cela la boucle `for`
 
-Exemple
+Exemple avec des listes
 
 ```Python
 # J'ai des legumes favoris
@@ -335,6 +353,19 @@ for ingredient in ingredients:
 
 # Ennonce le resultat
 print brasserie_ce_midi
+```
+
+Exemple avec un dictionnaire
+
+```Python
+le_dict = {1: "a", 2:"b", 3:"c"}
+
+
+for clef, valeur in le_dict.items():
+    print "clef : {clef}, valeur : {valeur}".format(
+        clef=clef,
+        valeur=valeur
+    )
 ```
 
 #### Boucle `while`
