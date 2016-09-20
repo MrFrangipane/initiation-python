@@ -46,13 +46,14 @@ def teapot_circle(radius, count):
 	distribution_angle = 2 * math.pi / count
 	# Each teapot
 	for teapot_index in range(count):
-		# Compute Angle
-		angle_z = distribution_angle * teapot_index
+		# Compute Angles
+		current_angle = distribution_angle * teapot_index
+		angle_z = math.pi * (index % 2) + current_angle
 		# Compute position
-		position_x = radius * math.cos(angle_z)
-		position_y = radius * math.sin(angle_z)
+		position_x = radius * math.cos(current_angle)
+		position_y = radius * math.sin(current_angle)
 		# New Teapot
-		new_teapot = create_teapot([position_x, position_y, 0], [0, 0, angle_z + math.pi])
+		new_teapot = create_teapot([position_x, position_y, 0], [0, 0, angle_z])
 		# Set Other Params
 		new_teapot.SetName("Teapot_{index:03d}".format(index=teapot_index))
 		new_teapot.SetWireColor(MaxPlus.Color(255 / count * teapot_index))
