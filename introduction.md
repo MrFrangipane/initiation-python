@@ -355,3 +355,43 @@ while j_ai_faim:
 
 print "J'ai plus faim, j'arrete la, ou alors juste un petit dessert"
 ```
+
+### Modules / Packages
+
+Python permet d'organiser le code en fichiers et en dossiers. Les fonctions sont ensuite accessibles grace à la commande `import`
+
+#### Module
+
+Tout fichier `.py` est un module, et il accessible à la commande `import` s'il est dans le même dossier que le script courant, ou s'il est dans le `$PYTHONPATH`
+
+```plain
+ / racine
+    + mon_module.py
+    + mon_script.py
+```
+
+```python
+import mon_module
+
+print mon_module.ma_fonction()
+```
+
+Exemple, le module `math`
+
+```python
+import math
+
+racine_carree = math.sqrt(25)
+print racine_carree
+```
+
+#### Package
+
+```plain
+ / racine
+    / mon_package
+       + __init__.py
+       + module_1.py
+       + module_2.py
+    + mon_script.py
+```
