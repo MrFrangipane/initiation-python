@@ -113,3 +113,52 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+### Avec zones de texte
+
+```Python
+import sys
+from PySide import QtGui
+
+class Example(QtGui.QWidget):
+    def __init__(self, titre="Titre"):
+        QtGui.QWidget.__init__(self)
+        self.titre = titre
+        self.init_ui()
+        
+    def init_ui(self):
+        self.setGeometry(300, 300, 250, 150)
+        self.setWindowTitle(self.titre)
+        self.setWindowIcon(QtGui.QIcon('web.png'))        
+        
+        self.le_bouton = QtGui.QPushButton("le bouton", parent=self)
+        self.le_bouton.move(10, 10)
+        self.le_bouton.pressed.connect(self.bouton_presse)
+        
+        self.line_nom = QtGui.QLineEdit(self)
+        self.line_nom.move(10, 40)
+        
+        self.line_prenom = QtGui.QLineEdit(self)
+        self.line_prenom.move(10, 80)
+        
+        self.show()
+
+    def bouton_presse(self):
+        nom = self.line_nom.text().capitalize()
+        prenom = self.line_prenom.text().capitalize()
+
+        print "Salut {prenom} {nom}".format(
+            prenom=prenom,
+            nom=nom
+        )
+
+        
+def main():
+    application = QtGui.QApplication(sys.argv)
+    example_1 = Example("Example 1")
+    sys.exit(application.exec_())
+
+
+if __name__ == '__main__':
+    main()
+```
