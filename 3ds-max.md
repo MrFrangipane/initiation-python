@@ -16,7 +16,13 @@ le module `MaxPlus`
 Créer une fonction qui créé une `teapot`
 
 ```Python
-make_teapot(radius=20.0, segments=10, position=[0.0, 0.0, 5.0])
+make_teapot(position=[0.0, 0.0, 5.0], rotation=[0.0, 0.0, 0.0])
+```
+
+Puis une fonction qui créé un cercle de `teapots`
+
+```Python
+teapot_circle(radius=20, count=7)
 ```
 
 ### Correction
