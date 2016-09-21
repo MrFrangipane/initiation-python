@@ -42,6 +42,8 @@ print moto.kilometre_parcouru
 
 ## Exemple PySide
 
+### Base
+
 ```Python
 import sys
 from PySide import QtGui
@@ -72,4 +74,42 @@ def main():
 if __name__ == '__main__':
     main()
 
+```
+
+### Avec Bouton
+
+```Pyhton
+import sys
+from PySide import QtGui
+
+class Example(QtGui.QWidget):
+    def __init__(self, titre="Titre"):
+        QtGui.QWidget.__init__(self)
+        self.titre = titre
+        self.init_ui()
+        
+    def init_ui(self):
+        self.setGeometry(300, 300, 250, 150)
+        self.setWindowTitle(self.titre)
+        self.setWindowIcon(QtGui.QIcon('web.png'))        
+        
+        self.le_bouton = QtGui.QPushButton("le bouton", parent=self)
+        self.le_bouton.move(10, 25)
+        self.le_bouton.pressed.connect(self.bouton_presse)
+        
+        self.show()
+
+    def bouton_presse(self):
+        print "SALUT ! je suis {titre}".format(titre=self.titre)
+
+        
+def main():
+    application = QtGui.QApplication(sys.argv)
+    example_1 = Example("Example 1")
+    example_2 = Example("Exemple 2")
+    sys.exit(application.exec_())
+
+
+if __name__ == '__main__':
+    main()
 ```
