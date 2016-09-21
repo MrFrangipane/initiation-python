@@ -39,3 +39,37 @@ moto.demarrer()
 moto.rouler(5)
 print moto.kilometre_parcouru
 ```
+
+## Exemple PySide
+
+```Python
+import sys
+from PySide import QtGui
+
+class Example(QtGui.QWidget):
+    
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
+        
+        self.init_ui()
+        
+    def init_ui(self):
+        self.setGeometry(300, 300, 250, 150)
+        self.setWindowTitle('Icon')
+        self.setWindowIcon(QtGui.QIcon('web.png'))        
+    
+        self.show()
+
+
+def main():
+    
+    application = QtGui.QApplication(sys.argv)
+    example_1 = Example()
+    example_2 = Example()
+    sys.exit(application.exec_())
+
+
+if __name__ == '__main__':
+    main()
+
+```
