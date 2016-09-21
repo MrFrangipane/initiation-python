@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
 ### Avec Bouton
 
-```Pyhton
+```Python
 import sys
 from PySide import QtGui
 
