@@ -101,9 +101,8 @@ class Example(QtGui.QWidget):
 def main():
     # Creation d'un widget
     example = Example()
+    # Evite la suppression du widget
     _GarbageCollectorProtector.protected_widgets.append(example)
-    # Ajout à la boucle principale de 3DsMax
-    application = QtGui.QApplication.instance()
     # Affichage
     example.show()
 
