@@ -23,11 +23,13 @@ class FocusFilter(QtCore.QObject):
         
 class MaxWidget(QtGui.QWidget):
     def __init__(self):
-        QtGui.QWidget.__init__(self, parent=None)
-        self.parent_hwnd = MaxPlus.Win32.GetMAXHWnd()
-        self.hwnd = self.get_hwnd()
-        self._parent_to_main_window()
-        self.show()
+        # Init Superclass
+        QtGui.QWidget.__init__(self)
+        # Parent to max
+        parent_hwnd = MaxPlus.Win32.GetMAXHWnd()
+        hwnd = self.get_hwnd()
+        SetWindowLongPtr(hwnd, GWL_HWNDPARENT, parent_hwnd)
+        # Filtres
         app = QtGui.QApplication.instance()
         self._focus_filter = FocusFilter()
         self.event_filter = app.installEventFilter(self._focus_filter)
