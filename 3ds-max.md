@@ -66,3 +66,43 @@ def teapot_circle(radius, count):
 
 teapot_circle(radius=30, count=15)
 ```
+
+## Intégration widget PySide
+
+Pré-requis : Chapitre PySide
+
+Exemple
+
+```Python
+import sys
+from PySide import QtGui
+import MaxPlus
+
+
+class Example(QtGui.QWidget):
+
+    def __init__(self):
+    	# Initialise Classe Parente
+        QtGui.QWidget.__init__(self)
+	# Initialise les elements d'interface
+        self.init_ui()
+
+    def init_ui(self):
+    	# Place et taille
+        self.setGeometry(300, 300, 250, 150)
+        # Titre
+        self.setWindowTitle('Example')
+
+
+def main():
+    # Creation d'un widget
+    example = Example()
+    # Ajout à la boucle principale de 3DsMax
+    MaxPlus.AttachQWidgetToMax(example)
+    # Affichage
+    example.show()
+
+
+if __name__ == '__main__':
+    main()
+```
