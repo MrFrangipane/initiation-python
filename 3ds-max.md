@@ -75,8 +75,8 @@ Exemple
 
 ```Python
 from PySide import QtGui
-import MaxPlus
 import maxhelper
+import MaxPlus
 
 
 class _GarbageCollectorProtector(object):
@@ -94,13 +94,18 @@ class Example(maxhelper.MaxWidget):
     def init_ui(self):
         # Place et taille
         self.setGeometry(300, 300, 250, 150)
+
         # Line
-        self.line = QtGui.QLineEdit(parent=self)
-        self.line.move(10, 10)
+        self.line = QtGui.QLineEdit()
         # Button
-        self.button = QtGui.QPushButton("Click me", parent=self)
-        self.button.move(10, 40)
+        self.button = QtGui.QPushButton("Click me")
         self.button.pressed.connect(self.button_pressed)
+        
+        # Layout
+        layout = QtGui.QGridLayout(self)
+        layout.addWidget(self.line, 0, 0)
+        layout.addWidget(self.button, 1, 0)
+
         # Titre
         self.setWindowTitle('Example')
 
