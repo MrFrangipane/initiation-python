@@ -88,15 +88,33 @@ class Example(QtGui.QWidget):
     def __init__(self):
         # Initialise Classe Parente
         QtGui.QWidget.__init__(self)
+        # mouseMoveEvent meme si aucun bouton presse
+        self.setMouseTracking(True)
         # Initialise les elements d'interface
         self.init_ui()
 
     def init_ui(self):
         # Place et taille
         self.setGeometry(300, 300, 250, 150)
+        # Line
+        self.line = QtGui.QLineEdit(parent=self)
+        self.line.move(10, 10)
+        # Button
+        self.button = QtGui.QPushButton("Click me", parent=self)
+        self.button.move(10, 40)
+        self.button.pressed.connect(self.button_pressed)
         # Titre
         self.setWindowTitle('Example')
 
+    def mouseMoveEvent(self, event):
+        # Disable keyboard
+        MaxPlus.CUI.DisableAccelerators()
+        # Forward to parent class
+        QtGui.QWidget.mouseMoveEvent(self, event)
+
+    def button_pressed(self):
+        print self.line.text()
+        
 
 def main():
     # Creation d'un widget
