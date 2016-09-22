@@ -79,16 +79,20 @@ from PySide import QtGui
 import MaxPlus
 
 
+class _GarbageCollectorProtector(object):
+    protected_widgets = list()
+
+
 class Example(QtGui.QWidget):
 
     def __init__(self):
-    	# Initialise Classe Parente
+        # Initialise Classe Parente
         QtGui.QWidget.__init__(self)
-	# Initialise les elements d'interface
+        # Initialise les elements d'interface
         self.init_ui()
 
     def init_ui(self):
-    	# Place et taille
+        # Place et taille
         self.setGeometry(300, 300, 250, 150)
         # Titre
         self.setWindowTitle('Example')
@@ -97,8 +101,9 @@ class Example(QtGui.QWidget):
 def main():
     # Creation d'un widget
     example = Example()
+    _GarbageCollectorProtector.protected_widgets.append(example)
     # Ajout à la boucle principale de 3DsMax
-    MaxPlus.AttachQWidgetToMax(example)
+    application = QtGui.QApplication.instance()
     # Affichage
     example.show()
 
