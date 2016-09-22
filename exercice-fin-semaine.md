@@ -6,6 +6,21 @@ L'interface doit ressembler à ceci
 
 ![Interface](/exo_interface.png)
 
+## Evalutation
+
+Vous serez évalués sur 
+
+- Nommage des variables clair et concis
+- Respect des conventions, espaces, tabulations, ... référez-vous au [PEP8](https://www.python.org/dev/peps/pep-0008/#naming-conventions)
+- Bonne séparation des modues d'interface et de creation d'objets
+- Création de fonctions autonomes et courtes, au besoin
+
+Aides 
+
+- [Tutoriel sur les `Layouts`](http://zetcode.com/gui/pysidetutorial/layoutmanagement/)
+- [Aide de la `QSpinBox`](https://srinikom.github.io/pyside-docs/PySide/QtGui/QSpinBox.html)
+- [Aide du `QLabel`](https://srinikom.github.io/pyside-docs/PySide/QtGui/QLabel.html)
+
 ## Module `teapot.py`
 
 Squelette du module
