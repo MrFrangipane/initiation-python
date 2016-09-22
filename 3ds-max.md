@@ -74,22 +74,20 @@ Pré-requis : Chapitre PySide
 Exemple
 
 ```Python
-import sys
 from PySide import QtGui
 import MaxPlus
+import maxhelper
 
 
 class _GarbageCollectorProtector(object):
     protected_widgets = list()
 
 
-class Example(QtGui.QWidget):
+class Example(maxhelper.MaxWidget):
 
     def __init__(self):
         # Initialise Classe Parente
-        QtGui.QWidget.__init__(self)
-        # mouseMoveEvent meme si aucun bouton presse
-        self.setMouseTracking(True)
+        maxhelper.MaxWidget.__init__(self)
         # Initialise les elements d'interface
         self.init_ui()
 
@@ -105,12 +103,6 @@ class Example(QtGui.QWidget):
         self.button.pressed.connect(self.button_pressed)
         # Titre
         self.setWindowTitle('Example')
-
-    def mouseMoveEvent(self, event):
-        # Disable keyboard
-        MaxPlus.CUI.DisableAccelerators()
-        # Forward to parent class
-        QtGui.QWidget.mouseMoveEvent(self, event)
 
     def button_pressed(self):
         print self.line.text()
