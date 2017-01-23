@@ -201,7 +201,7 @@ else:
 
 ### Fonctions
 
-Pour permettre d'organiser et pour éviter de recopier du code s'il est réutiliser, il est possible de définir des
+Pour permettre d'organiser et pour éviter de recopier du code s'il est réutilisé, il est possible de définir des
 fonctions.
 
 Une fonction est un bloc de code à qui zéro, un, ou plusieurs **arguments** va être passé, et qui va renvoyer
