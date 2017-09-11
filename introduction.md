@@ -212,11 +212,11 @@ Exemple
 # Definition de la fonction
 def ma_reaction(prix):
     # Moins de 50 euros, ca passe
-    if prix_total < 50:
+    if prix < 50:
         return "J'achete !"
 
     # Plus de 500 euros, quelle arnaque
-    elif prix_total >= 500:
+    elif prix >= 500:
         return "C'est trop cher !"
 
     # Sinon je sais pas trop
