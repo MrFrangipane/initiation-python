@@ -18,6 +18,7 @@ cornichons = {
 }
 
 mon_inventaire = [bout_bois, saucisson, cornichons]
+ton_inventaire = [bout_bois]
 
 def calcul_statut(inventaire):
   statut = {
@@ -33,5 +34,8 @@ def calcul_statut(inventaire):
   
   return statut
 
-statut = calcul_statut(inventaire=mon_inventaire)
-print statut
+mon_statut = calcul_statut(inventaire=mon_inventaire)
+ton_statut = calcul_statut(inventaire=ton_inventaire)
+
+print mon_statut
+print ton_statut
