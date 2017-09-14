@@ -24,12 +24,13 @@ def compute_rotations(count):
 	return rotations
 
 	
-def compute_colors(base_color, count):
+def compute_colors(base_color, count, factor=3):
 	colors = list()
 	alpha = (2 * math.pi) / count
 	
 	for i in range(count):
-		value = math.cos(i * alpha * 3)
+		value = (1.0 + math.cos(i * alpha * factor)) / 2.0
+		
 		color = (
 			base_color[0] * value,
 			base_color[1] * value,
@@ -58,7 +59,7 @@ def move(node, position):
 	node.Position = MaxPlus.Point3(*position)
 
 
-def set_color(node, color):
+def colorize(node, color):
 	node.SetWireColor(MaxPlus.Color(*color))
 	
 
@@ -74,23 +75,25 @@ def cylinder_circle(circle_radius, cylinder_count, cylinder_height, cylinder_rad
 	cylinder_rotations = compute_rotations(cylinder_count)
 	cylinder_colors = compute_colors(base_color, cylinder_count)
 	
-	for index, cylinder_position in enumerate(cylinder_positions):
+	for index in range(cylinder_count):
 		new_cylinder = cylinder(cylinder_height, cylinder_radius)
 		
-		move(new_cylinder, cylinder_position)
+		move(new_cylinder, cylinder_positions[index])
 		rotate(new_cylinder, cylinder_rotations[index])
-		set_color(new_cylinder, cylinder_colors[index])
+		colorize(new_cylinder, cylinder_colors[index])
 		
 		cylinders.append(new_cylinder)
 
 	return cylinders
 
+colors = compute_colors([0, 1, 0], 60)
 
-for i in range(1, 20):
+	
+for i in range(1, 60):
 	cylinders = cylinder_circle(
 		circle_radius=i * 7, 
 		cylinder_count=i * 5,
 		cylinder_height=i * 1.1,
 		cylinder_radius=2,
-		base_color=random_color()
+		base_color=colors[i]
 )
