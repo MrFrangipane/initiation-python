@@ -108,17 +108,13 @@ def cylinder_circle(circle_radius, cylinder_count, cylinder_height, cylinder_rad
 
 
 def animate_cylinders(cylinders, frame_count):
-	MaxPlus.Animation.SetAnimateButtonState(True)
-	
 	scalings = compute_scalings(frame_count)
-	
-	for frame_number in range(frame_count):
-		
-		MaxPlus.Animation.SetTime(frame_number * 160)
+	MaxPlus.Animation.SetAnimateButtonState(True)
 
+	for frame_number in range(frame_count):	
+		MaxPlus.Animation.SetTime(frame_number * 160)
 		for index, cylinder in enumerate(all_cylinders):
-			i = (frame_number + index) % frame_count
-		
+			i = (frame_number + index) % frame_count		
 			set_height(cylinder, scalings[i][2])
 		
 	MaxPlus.Animation.SetAnimateButtonState(False)
