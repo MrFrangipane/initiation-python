@@ -41,20 +41,15 @@ def compute_colors(base_color, count, factor=3):
 	return colors
 
 
-def compute_scalings(count, factor=3):
-	scalings = list()
+def compute_heights(count, factor=3):
+	heights = list()
 	alpha = (2 * math.pi) / count
 	
 	for i in range(count):
-		scale = (
-			1.0,
-			1.0,
-			math.sin(alpha * i) * 5
-		)
-		
-		scalings.append(scale)
+		height = math.sin(alpha * i) * 5
+		heights.append(height)
 	
-	return scalings
+	return heights
 	
 	
 def random_color():
@@ -108,29 +103,31 @@ def cylinder_circle(circle_radius, cylinder_count, cylinder_height, cylinder_rad
 
 
 def animate_cylinders(cylinders, frame_count):
-	scalings = compute_scalings(frame_count)
+	heights = compute_heights(frame_count)
 	MaxPlus.Animation.SetAnimateButtonState(True)
-
-	for frame_number in range(frame_count):	
+	
+	for frame_number in range(frame_count):
 		MaxPlus.Animation.SetTime(frame_number * 160)
+
 		for index, cylinder in enumerate(all_cylinders):
-			i = (frame_number + index) % frame_count		
-			set_height(cylinder, scalings[i][2])
+			i = (frame_number + index) % frame_count
+			set_height(cylinder, heights[i])
 		
 	MaxPlus.Animation.SetAnimateButtonState(False)
 
-	
-colors = compute_colors([0, 1, 0], 20)
-all_cylinders = list()
 
-for i in range(1, 20):
-	cylinders = cylinder_circle(
-		circle_radius=i * 7, 
-		cylinder_count=i * 5,
-		cylinder_height=i * 1.1,
-		cylinder_radius=2,
-		base_color=colors[i]
-	)
-	all_cylinders += cylinders
+if __name__ == '__main__':
+	colors = compute_colors([0, 1, 0], 20)
+	all_cylinders = list()
 
-animate_cylinders(all_cylinders, 60)
+	for i in range(1, 20):
+		cylinders = cylinder_circle(
+			circle_radius=i * 7, 
+			cylinder_count=i * 5,
+			cylinder_height=i * 1.1,
+			cylinder_radius=2,
+			base_color=colors[i]
+		)
+		all_cylinders += cylinders
+
+	animate_cylinders(all_cylinders, 60)
