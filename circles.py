@@ -41,12 +41,12 @@ def compute_colors(base_color, count, factor=3):
 	return colors
 
 
-def compute_heights(count, factor=3):
+def compute_heights(count, factor=5):
 	heights = list()
 	alpha = (2 * math.pi) / count
 	
 	for i in range(count):
-		height = math.sin(alpha * i) * 5
+		height = math.sin(alpha * i) * factor
 		heights.append(height)
 	
 	return heights
@@ -109,7 +109,7 @@ def animate_cylinders(cylinders, frame_count):
 	for frame_number in range(frame_count):
 		MaxPlus.Animation.SetTime(frame_number * 160)
 
-		for index, cylinder in enumerate(all_cylinders):
+		for index, cylinder in enumerate(cylinders):
 			i = (frame_number + index) % frame_count
 			set_height(cylinder, heights[i])
 		
