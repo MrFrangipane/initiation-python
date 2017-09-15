@@ -41,9 +41,24 @@ def compute_colors(base_color, count, factor=3):
 	return colors
 
 
+def compute_scalings(count, factor=3):
+	scalings = list()
+	alpha = (2 * math.pi) / count
+	
+	for i in range(count):
+		scale = (
+			1.0,
+			1.0,
+			math.sin(alpha * i) * 5
+		)
+		
+		scalings.append(scale)
+	
+	return scalings
+	
+	
 def random_color():
 	return random.random(), random.random(), random.random()
-	
 	
 	
 def cylinder(height=1.0, radius=1.0):
@@ -68,6 +83,11 @@ def rotate(node, rotation):
 	rotation_quat.SetEuler(*rotation)
 	node.Rotation = rotation_quat
 
+
+def set_height(node, height):
+	obj = node.GetBaseObject()
+	obj.ParameterBlock.Height.SetValue(height)
+	
 	
 def cylinder_circle(circle_radius, cylinder_count, cylinder_height, cylinder_radius, base_color):
 	cylinders = list()
@@ -77,7 +97,7 @@ def cylinder_circle(circle_radius, cylinder_count, cylinder_height, cylinder_rad
 	
 	for index in range(cylinder_count):
 		new_cylinder = cylinder(cylinder_height, cylinder_radius)
-		
+
 		move(new_cylinder, cylinder_positions[index])
 		rotate(new_cylinder, cylinder_rotations[index])
 		colorize(new_cylinder, cylinder_colors[index])
@@ -86,14 +106,35 @@ def cylinder_circle(circle_radius, cylinder_count, cylinder_height, cylinder_rad
 
 	return cylinders
 
-colors = compute_colors([0, 1, 0], 60)
+
+def animate_cylinders(cylinders, frame_count):
+	MaxPlus.Animation.SetAnimateButtonState(True)
+	
+	scalings = compute_scalings(frame_count)
+	
+	for frame_number in range(frame_count):
+		
+		MaxPlus.Animation.SetTime(frame_number * 160)
+
+		for index, cylinder in enumerate(all_cylinders):
+			i = (frame_number + index) % frame_count
+		
+			set_height(cylinder, scalings[i][2])
+		
+	MaxPlus.Animation.SetAnimateButtonState(False)
 
 	
-for i in range(1, 60):
+colors = compute_colors([0, 1, 0], 20)
+all_cylinders = list()
+
+for i in range(1, 20):
 	cylinders = cylinder_circle(
 		circle_radius=i * 7, 
 		cylinder_count=i * 5,
 		cylinder_height=i * 1.1,
 		cylinder_radius=2,
 		base_color=colors[i]
-)
+	)
+	all_cylinders += cylinders
+
+animate_cylinders(all_cylinders, 60)
