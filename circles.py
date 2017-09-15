@@ -120,13 +120,13 @@ if __name__ == '__main__':
 	colors = compute_colors([0, 1, 0], 20)
 	all_cylinders = list()
 
-	for i in range(1, 20):
+	for i, color in enumerate(colors, 1):
 		cylinders = cylinder_circle(
 			circle_radius=i * 7, 
 			cylinder_count=i * 5,
 			cylinder_height=i * 1.1,
 			cylinder_radius=2,
-			base_color=colors[i]
+			base_color=color
 		)
 		all_cylinders += cylinders
 
