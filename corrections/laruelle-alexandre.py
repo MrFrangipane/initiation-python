@@ -132,12 +132,10 @@ if __name__ == '__main__':
     BOX_WIDTH_COUNT = 20    # largeur de l'objet
     BOX_HEIGHT_COUNT = 20   # longeur de l'objet
 
-
     positions = compute_positions(PADDING, BOX_WIDTH_COUNT, BOX_HEIGHT_COUNT)  # calcule des positions des objets
     all_boxes = list()  # creation d'une liste vide pour les boites
 
     for position in positions:  # creation des cubes en fonction des positions calculees precedement
-
         boxes = create_cube(10, 10, 10, position)  # on creer le cube a tel position
         set_color(boxes, 1, 1, 1)  # on initialise la couleur en blanc
         all_boxes.append(boxes)  # on remplit la liste des boites
