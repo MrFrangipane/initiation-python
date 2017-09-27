@@ -134,13 +134,13 @@ if __name__ == '__main__':
 
 
     positions = compute_positions(PADDING, BOX_WIDTH_COUNT, BOX_HEIGHT_COUNT)  # calcule des positions des objets
-    all_Boxes = list()  # creation d'une liste vide pour les boites
+    all_boxes = list()  # creation d'une liste vide pour les boites
 
     for position in positions:  # creation des cubes en fonction des positions calculees precedement
 
         boxes = create_cube(10, 10, 10, position)  # on creer le cube a tel position
         set_color(boxes, 1, 1, 1)  # on initialise la couleur en blanc
-        all_Boxes.append(boxes)  # on remplit la liste des boites
+        all_boxes.append(boxes)  # on remplit la liste des boites
 
     # on lance le calcule de l'animation des boites
-    animate_boxes(all_Boxes, PERIOD, BOX_HEIGHT_COUNT, FRAME_COUNT, SIZE_MULTIPLIER)
+    animate_boxes(all_boxes, PERIOD, BOX_HEIGHT_COUNT, FRAME_COUNT, SIZE_MULTIPLIER)
