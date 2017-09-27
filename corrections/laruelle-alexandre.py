@@ -2,7 +2,7 @@ import math
 import MaxPlus
 
 
-def createCube(length, width, height, position):
+def create_cube(length, width, height, position):
     """
     fonction creer un cube.
     la variable obj contient les infos de l'objet geometrique, ici une Box.
@@ -82,7 +82,7 @@ def compute_heights(period, square_count, size_multiplier):
     return heights
 
 	
-def animate_Boxes(boxes, period, square_count, frame_count, size_multiplier):
+def animate_boxes(boxes, period, square_count, frame_count, size_multiplier):
     """
     Fonction pour animer les boites.
     on recupere les hauteurs calculees dans une liste "heights".
@@ -138,9 +138,9 @@ if __name__ == '__main__':
 
     for position in positions:  # creation des cubes en fonction des positions calculees precedement
 
-        boxes = createCube(10, 10, 10, position)  # on creer le cube a tel position
+        boxes = create_cube(10, 10, 10, position)  # on creer le cube a tel position
         set_color(boxes, 1, 1, 1)  # on initialise la couleur en blanc
         all_Boxes.append(boxes)  # on remplit la liste des boites
 
     # on lance le calcule de l'animation des boites
-    animate_Boxes(all_Boxes, PERIOD, BOX_HEIGHT_COUNT, FRAME_COUNT, SIZE_MULTIPLIER)
+    animate_boxes(all_Boxes, PERIOD, BOX_HEIGHT_COUNT, FRAME_COUNT, SIZE_MULTIPLIER)
