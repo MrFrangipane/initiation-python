@@ -5,24 +5,23 @@ majeurs (Maya, 3DS Max, Blender, Nuke, Mari, ...)
 
 Il a probablement été si bien adopté pour les nombreux avantages qu'il présente :
 
-- **Haut-niveau**, c'est à dire qu'on se préoccupe plus de la lisibilité du code, que de ce qui passe
-réellement au niveau matériel
+- **Haut-niveau** : On peut se concentrer d'avantage sur la lisibilité du code, plutôt que sur ce qui passe réellement au niveau matériel
 
-- **Interprêté**, par opposition à compilé. Permet une portabilité totale du code, au prix d'une legère
-perte en performance
+- **Interprêté** : par opposition à compilé. Facilite la portabilité du code, au prix d'une perte en performance
 
-- **Syntaxe**, un maximum de signes de 'ponctuation' on été enlevés, par rapport aux autres
-langages (pas de point-virgule à la fin de chaque ligne, pas de crochet pour définir les blocs de code, ...)
+- **Syntaxe** : un maximum de signes de 'ponctuation' on été enlevés, par rapport aux autres langages (pas de point-virgule à la fin de chaque ligne, pas de crochet pour définir les blocs de code, ...)
 
 ## Les bases du Python
 
-Pour pouvoir utiliser Python, il faut connaitre certaines bases de la programmation, qui sont communes à la plupart
-des langages.
+Pour pouvoir utiliser Python, il faut connaitre certaines bases de la programmation, qui sont communes à la plupart des langages.
+
+### Concept de base
+
+Programmer c'est dicter à la machine une suite d'instruction à éxecuter, dans un certain ordre, et sous certaines conditions.
 
 ### Variables
 
-Une variable peut être imaginée comme un conteneur. C'est un objet qui stocke en mémoire un certain nombre
-d'informations, pour pouvoir les utiliser plusieurs fois, à plusieurs moments.
+Une variable peut être imaginée comme un conteneur. C'est un objet qui stocke en mémoire un certain nombre d'informations, pour pouvoir les utiliser plusieurs fois, à plusieurs moments.
 
 Créer une variable s'appelle **déclaration**
 
@@ -44,11 +43,9 @@ ma_variable = 10  # Reassignation
 
 ### Types
 
-Dans l'exemple précédent, il était question de nombres entiers. En programmation, on manipule différents types de
-données, comme des nombres réels, du texte, des listes d'autres objets, ...
+Dans l'exemple précédent, il était question de nombres entiers. En programmation, on manipule différents types de données, comme des nombres réels, du texte, des listes d'autres objets, ...
 
-Dans certains langages, une variable doit être déclarée avec un type, et ce type ne peut être changé pendant toute
-la durée de vie de la variable.
+Dans certains langages, une variable doit être déclarée avec un type, et ce type ne peut plus être changé pendant toute la durée de vie de la variable.
 
 En python, une variable peut changer de type à n'importe quel moment de son existence
 
@@ -58,6 +55,8 @@ ma_variable = 5  # Entier
 ma_variable = "bonjour"  # Chaine de caracteres
 ```
 
+_Cela permet une certaine flexibilité, mais cela apporte aussi un certain nombre de problèmes éventuels. **Mieux vaut se tenir à un type par variable**_
+
 Les principaux types d'objets sont les suivants
 
 | Nom | Type | Description |
@@ -66,14 +65,13 @@ Les principaux types d'objets sont les suivants
 | Flotant | `float` | Les nombres réels |
 | Booléen | `bool` | Vrai ou Faux |
 | Chaîne | `str` | Texte |
-| Iterable | `list`, `dict`, `tuple`... | Contiennent un certain nombre d'autres objets |
+| Iterable | `list`, `dict`, `tuple`... | Contiennent un certain nombre d'autres objets, agencés d'une certaine manière |
 
 ### Syntaxe
 
 Un des grands avantages du Python est sa syntaxe. Elle est lisible et minimaliste.
 
-Pour définir un bloc de code (fonction, test, boucle, ...) la plupart des langages utilisent les accolades,
-les points virgules, et d'autres signes
+Par exemple, pour définir un bloc de code (fonction, test, boucle, ...) la plupart des langages utilisent les accolades, les points virgules, et d'autres signes
 
 Exemple en C#
 
@@ -129,9 +127,9 @@ Il est possible d'effectuer des opérations sur des variables
 
 ```python
 prix_au_kilo = 5
-nombre_kilo = 2
+poids_en_kilo = 2
 
-prix_total = prix_au_kilo * nombre_kilo
+prix_total = prix_au_kilo * poids_en_kilo
 ```
 
 Les principaux opérateurs sont les suivants
@@ -148,8 +146,7 @@ Les principaux opérateurs sont les suivants
 
 ### Test / Comparaison
 
-Il existe des opérateurs de comparaison. Ces opérateurs renvoient un booléen, selon si la comparaision est vraie ou
-fausse.
+Il existe des opérateurs de comparaison. Ces opérateurs renvoient un booléen, selon si la comparaison est vraie ou fausse.
 
 Il existe des opérateurs de comparaison pour l'égalité, la superiorité, l'inferiorité, ...
 
@@ -175,8 +172,8 @@ Les principaux opérateurs sont les suivants
 | Unicité | `is` | Teste s'il s'agit du même objet |
 | Non unicité | `is not` | Teste s'il ne s'agit pas du même objet |
 
-Afin de pouvoir executer du code selon un cas ou l'autre, on utilise une structure de contrôle. Elle utilise les mots-clef
-`if`, `elif` et `else`
+Afin de pouvoir executer du code selon un cas ou l'autre, on utilise une structure de contrôle. 
+Elle utilise les mots-clef `if`, `elif` et `else`
 
 Exemple
 
