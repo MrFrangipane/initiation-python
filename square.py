@@ -30,12 +30,3 @@ def make_cylinders(row_count, column_count, spacing, cyl_height, cyl_radius):
 			cylinders.append(new_cylinder)
 	
 	return cylinders
-
-
-make_cylinders(
-	row_count=15, 
-	column_count=5, 
-	spacing=15, 
-	cyl_height=10, 
-	cyl_radius=5
-)
