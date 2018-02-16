@@ -1,6 +1,5 @@
 import random
 import max_
-reload(max_)
 
 
 def make_cylinders(row_count, column_count, spacing, cyl_height, cyl_radius):
